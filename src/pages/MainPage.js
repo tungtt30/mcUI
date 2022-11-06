@@ -4,6 +4,7 @@ import Player from '../components/Player'
 import SideBar from '../components/SideBar'
 
 const MainPage = () => {
+
     return (
         <div className='flex'>
             <SideBar />

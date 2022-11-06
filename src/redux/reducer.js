@@ -20,9 +20,15 @@ const rootReducer = (state = initState, action) => {
     switch (action.type) {
         case 'SET_SONG':
             return {
-                ...initState,
+                ...state,
                 currentSong: action.payload,
                 isPlaying: true
+            }
+
+        case 'SET_PLAYLIST':
+            return {
+                ...state,
+                playList: action.payload
             }
 
 

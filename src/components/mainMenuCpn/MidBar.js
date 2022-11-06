@@ -8,9 +8,9 @@ const MidBar = () => {
 
     const listData = useSelector(state => state.playList)
     const dispatch = useDispatch()
-
     const [list, setList] = useState(listData.slice(0, 7))
     const [slide, setSlide] = useState(0)
+
 
 
     const handleClick = (item) => {
@@ -30,11 +30,10 @@ const MidBar = () => {
             setSlide(() => slide - 1)
             setList(listData.slice(slide, slide + 7))
         } else {
-            setSlide(listData.length - 1)
+            setSlide(listData.length - 7)
         }
 
     }
-
 
     return (
         <div className=' text-white bg-slate-900 p-1 rounded-xl '>

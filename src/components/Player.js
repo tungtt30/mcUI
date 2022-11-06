@@ -23,12 +23,13 @@ const Player = () => {
         }
     }, [song, selector.isPlaying])
 
+
     const handleVolume = (e) => {
         setVolume(e.target.value)
-        songRef.current.volume = volume / 100
-        if (volume <= 1) {
+        songRef.current.volume = e.target.value / 100
+        if (e.target.value <= 1) {
             setVolumeIcon('fa-solid fa-volume-xmark')
-        } else if (volume < 50) {
+        } else if (e.target.value < 50) {
             setVolumeIcon('fa-solid fa-volume-low')
         } else {
             setVolumeIcon('fa-solid fa-volume-high')
@@ -120,7 +121,7 @@ const Player = () => {
 
             <div className='space-x-3 text-white pr-4 flex items-center'>
                 <i className={`${volumeIcon} hover:text-orange-600 cursor-pointer w-4 transition-all`} onClick={handleMute}></i>
-                <input type='range' className='progress-volume cursor-pointer' value={volume} onChange={handleVolume} />
+                <input type='range' className='progress-volume cursor-pointer' value={volume} onInput={handleVolume} />
             </div>
             <div className='text-white flex items-center space-x-4 '>
                 <i className="fa-solid fa-ellipsis-vertical hover:text-orange-600 cursor-pointer w-4 mr-5 transition-all"></i>

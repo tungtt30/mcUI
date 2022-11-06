@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { setSongSync } from "../redux/action";
 
 const sideBarData = [
   {
@@ -19,12 +21,21 @@ const sideBarData = [
   },
 ];
 
+
+
 const SideBar = () => {
   const [mainIcon, setMainIcon] = useState("fa-solid fa-music");
+  const dispatch = useDispatch()
 
   const handleClick = (icon) => {
     setMainIcon(icon);
   };
+
+  const handleSetSong = () => {
+    dispatch(setSongSync())
+  }
+
+
 
   return (
     <div className="h-screen w-1/6 bg-slate-900 ">
@@ -46,6 +57,13 @@ const SideBar = () => {
             <span>{item.name}</span>
           </div>
         ))}
+        <div
+          onClick={handleSetSong}
+          className="pl-6 space-x-3 m-2 hover:text-orange-400 cursor-pointer transition-all"
+        >
+          <i className="fa-solid fa-rotate"></i>
+          <span>Sync</span>
+        </div>
       </div>
     </div>
   );
