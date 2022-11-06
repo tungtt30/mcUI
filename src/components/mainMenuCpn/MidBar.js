@@ -18,11 +18,11 @@ const MidBar = () => {
     }
 
     const handleNext = () => {
-        if (slide < listData.length) {
+        if (slide < listData.length - 7) {
             setList(listData.slice(slide, slide + 7))
             setSlide(() => slide + 1)
         } else {
-            setSlide(0)
+            setSlide(7)
         }
     }
     const handleBack = () => {
