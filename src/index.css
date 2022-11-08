@@ -8,4 +8,10 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+  .hidden-select::file-selector-button {
+    display: none;
+  }
+  .tpr-50 {
+    background-color: rgba(0, 0, 0, 0.532);
+  }
 }

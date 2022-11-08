@@ -22,8 +22,9 @@ const sideBarData = [
 ];
 
 
+const Divider = () => <hr className="border-t-2 border-purple-300 mx-4" />;
 
-const SideBar = () => {
+const SideBar = ({ setShow }) => {
   const [mainIcon, setMainIcon] = useState("fa-solid fa-music");
   const dispatch = useDispatch()
 
@@ -33,6 +34,9 @@ const SideBar = () => {
 
   const handleSetSong = () => {
     dispatch(setSongSync())
+  }
+  const handleShowModal = () => {
+    setShow('flex')
   }
 
 
@@ -47,6 +51,7 @@ const SideBar = () => {
         <span>MUSIC</span>
       </div>
       <div className="text-white flex-col space-y-5 mt-10 text-lg">
+
         {sideBarData.map((item) => (
           <div
             onClick={() => handleClick(item.icon)}
@@ -57,12 +62,23 @@ const SideBar = () => {
             <span>{item.name}</span>
           </div>
         ))}
+
+
+        <Divider />
+
         <div
           onClick={handleSetSong}
-          className="pl-6 space-x-3 m-2 hover:text-orange-400 cursor-pointer transition-all"
+          className="pl-6 space-x-3 m-2 hover:text-blue-500 cursor-pointer transition-all "
         >
-          <i className="fa-solid fa-rotate"></i>
+          <i className="fa-solid fa-download"></i>
           <span>Sync</span>
+        </div>
+        <div
+          onClick={handleShowModal}
+          className="pl-6 space-x-3 m-2 hover:text-rose-500 cursor-pointer transition-all"
+        >
+          <i className="fa-solid fa-cloud-arrow-up"></i>
+          <span>Upload</span>
         </div>
       </div>
     </div>
