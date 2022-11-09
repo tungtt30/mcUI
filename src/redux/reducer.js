@@ -11,7 +11,8 @@ const initState = {
         image: image,
     },
     isPlaying: false,
-    playList: fakeInitState
+    playList: fakeInitState,
+    uploadShow: 'hidden'
 }
 
 
@@ -22,7 +23,7 @@ const rootReducer = (state = initState, action) => {
             return {
                 ...state,
                 currentSong: action.payload,
-                isPlaying: true
+                isPlaying: false
             }
 
         case 'SET_PLAYLIST':
@@ -31,6 +32,16 @@ const rootReducer = (state = initState, action) => {
                 playList: action.payload
             }
 
+        case 'TOGGLE_PLAY':
+            return {
+                ...state,
+                isPlaying: !state.isPlaying
+            }
+        case 'TOGGLE_UPLOAD':
+            return {
+                ...state,
+                uploadShow: action.payload
+            }
 
         default:
             return state

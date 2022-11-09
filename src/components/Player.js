@@ -1,11 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react'
 import './player.css'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import timeFormat from '../utils/timeFormat'
+import { togglePlaying } from '../redux/action'
 
 const Player = () => {
 
     const selector = useSelector(state => state)
+    const dispatch = useDispatch()
     let song = selector.currentSong
     const songRef = useRef()
     const [playPause, setPlayPause] = useState('play')
@@ -15,11 +17,16 @@ const Player = () => {
     const [duration, setDuration] = useState(0.001)
     const [currentTime, setCurrentTime] = useState(0)
 
+
+
     useEffect(() => {
         if (selector.isPlaying) {
             setPlayPause('pause')
+            songRef.current.play()
+
         } else {
             setPlayPause('play')
+            songRef.current.pause()
         }
     }, [song, selector.isPlaying])
 
@@ -46,8 +53,8 @@ const Player = () => {
             songRef.current.volume = 1
         }
     }
-    const togglePlay = async (check) => {
-        if (check === 'play') {
+    const togglePlay = async () => {
+        if (!selector.isPlaying) {
             await songRef.current.play()
             setDuration(songRef.current.duration)
             setPlayPause('pause')
@@ -55,6 +62,7 @@ const Player = () => {
             await songRef.current.pause()
             setPlayPause('play')
         }
+        dispatch(togglePlaying())
     }
 
     const handleRepeat = () => {
@@ -108,7 +116,7 @@ const Player = () => {
 
             <div className='flex justify-between space-x-5 text-white text-2xl items-center '>
                 <i onClick={handleBack} className="fa-solid fa-backward-step hover:text-orange-600 cursor-pointer  transition-all"></i>
-                <i onClick={() => togglePlay(playPause)} className={`fa-solid fa-${playPause} hover:text-orange-600 cursor-pointer w-5  transition-all`}></i>
+                <i onClick={togglePlay} className={`fa-solid fa-${playPause} hover:text-orange-600 cursor-pointer w-5  transition-all`}></i>
                 <i onClick={handleNext} className="fa-solid fa-forward-step hover:text-orange-600 cursor-pointer transition-all"></i>
                 <i className={`fa-solid fa-repeat cursor-pointer text-xl ${repeat ? 'text-orange-600' : 'text-white'} transition-all`} onClick={handleRepeat}></i>
             </div>
@@ -128,7 +136,7 @@ const Player = () => {
             </div>
 
 
-            <audio src={song.url} ref={songRef} onEnded={handleEnded} autoPlay />
+            <audio src={song.url} ref={songRef} onEnded={handleEnded} />
         </div >
     )
 }

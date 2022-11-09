@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { setSongSync } from "../redux/action";
+import { setSongSync, toggleUpload } from "../redux/action";
 
 const sideBarData = [
   {
@@ -24,7 +24,9 @@ const sideBarData = [
 
 const Divider = () => <hr className="border-t-2 border-purple-300 mx-4" />;
 
-const SideBar = ({ setShow }) => {
+const SideBar = () => {
+
+
   const [mainIcon, setMainIcon] = useState("fa-solid fa-music");
   const dispatch = useDispatch()
 
@@ -36,7 +38,7 @@ const SideBar = ({ setShow }) => {
     dispatch(setSongSync())
   }
   const handleShowModal = () => {
-    setShow('flex')
+    dispatch(toggleUpload('flex'))
   }
 
 

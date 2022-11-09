@@ -1,12 +1,20 @@
 import axios from 'axios'
 import React, { useRef } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { toggleUpload } from '../redux/action'
 
-const UploadPage = ({ show, setShow }) => {
+const UploadPage = (props, ref) => {
 
+    const selector = useSelector(state => state)
+    const dispatch = useDispatch()
     const formRef = useRef()
 
+
+
+
+
     const handleClose = () => {
-        setShow('hidden')
+        dispatch(toggleUpload('hidden'))
     }
 
 
@@ -27,7 +35,7 @@ const UploadPage = ({ show, setShow }) => {
 
 
     return (
-        <div className={`absolute z-50  h-screen w-screen items-center justify-center ${show} tpr-50 `} >
+        <div className={`absolute z-50  h-screen w-screen items-center justify-center ${selector.uploadShow} tpr-50 `} >
             <div className='h-auto w-2/6 bg-gradient-to-b from-purple-800 to-black text-white p-10 rounded-xl shadow-lg'>
                 <div className='flex justify-center items-center text-2xl mb-6'>
                     <span>UPLOAD</span>
@@ -59,4 +67,4 @@ const UploadPage = ({ show, setShow }) => {
     )
 }
 
-export default UploadPage 
+export default UploadPage
