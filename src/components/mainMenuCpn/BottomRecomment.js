@@ -4,7 +4,7 @@ import { BottomRecommentItem } from './BottomRecommentItem'
 
 const genres = [
     {
-        name: 'jazz',
+        name: 'Jazz',
         color: 'bg-orange-900'
     }, {
         name: 'RnB',

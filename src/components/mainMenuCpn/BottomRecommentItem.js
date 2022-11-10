@@ -20,8 +20,8 @@ export const BottomRecommentItem = ({ item, index }) => {
             <span className='w-4'>{index + 1}</span>
             <img src={item.image} alt='' className='h-10 w-10 rounded-md' onClick={handleClick} />
             <div className='w-24' onClick={handleClick}>
-                <p className='text-xl'>{item.name}</p>
-                <p className='text-sm'>{item.singer}</p>
+                <p className='text-xl w-36 h-6 whitespace-nowrap overflow-hidden text-ellipsis'>{item.name}</p>
+                <p className='text-sm h-4 mb-1 whitespace-nowrap overflow-hidden text-ellipsis'>{item.singer}</p>
             </div>
             <div className='space-x-3'>
                 <span>34090</span>

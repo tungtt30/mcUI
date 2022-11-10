@@ -70,9 +70,10 @@ const Player = () => {
     }
     const handleEnded = async () => {
         if (repeat) {
-            await togglePlay('play')
+            await songRef.current.play()
         } else {
             setPlayPause('play')
+            dispatch(togglePlaying())
         }
     }
     const handleSeek = (e) => {

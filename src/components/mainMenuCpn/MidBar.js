@@ -32,7 +32,6 @@ const MidBar = () => {
         } else {
             setSlide(listData.length - 7)
         }
-
     }
 
     return (

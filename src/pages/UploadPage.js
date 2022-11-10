@@ -43,19 +43,19 @@ const UploadPage = (props, ref) => {
                 <form className='space-y-4' ref={formRef}>
                     <div className='space-x-8 flex justify-center items-center'>
                         <div className='w-20' htmlFor='songName'>Song</div>
-                        <input className='w-52 rounded-lg bg-transparent outline-none p-1 border-2 border-purple-400' id='songName' type='text' name='name' />
+                        <input className='w-52 rounded-lg bg-transparent outline-none p-1 border-2 border-purple-800' id='songName' type='text' name='name' />
                     </div>
                     <div className='space-x-8 flex justify-center items-center'>
                         <div className='w-20' htmlFor='singerName'>Singer</div>
-                        <input className='w-52 rounded-lg bg-transparent outline-none p-1 border-2 border-purple-400' id='singerName' type='text' name='singer' />
+                        <input className='w-52 rounded-lg bg-transparent outline-none p-1 border-2 border-purple-800' id='singerName' type='text' name='singer' />
                     </div>
                     <div className='space-x-8 flex justify-center items-center'>
                         <div className='w-20' htmlFor='songFile'>Song file</div>
-                        <input className='hidden-select outline-none p-1 border-2 border-purple-400 w-52 bg-purple-900 rounded-lg cursor-pointer hover:bg-purple-900 transition-all' accept='audio/mpeg, audio/x-m4a' id='songFile' type='file' name='song' />
+                        <input className='hidden-select outline-none p-1 border-2 border-purple-800 w-52 bg-purple-900 rounded-lg cursor-pointer hover:bg-violet-900 transition-all' accept='audio/mpeg, audio/x-m4a' id='songFile' type='file' name='song' />
                     </div>
                     <div className='space-x-8 flex justify-center items-center'>
                         <div className='w-20' htmlFor='imageFile'>Image file</div>
-                        <input className='hidden-select outline-none p-1 border-2 border-purple-400 w-52 bg-purple-900 rounded-lg cursor-pointer hover:bg-purple-900 transition-all' accept='image/jpg, image/png, image/jpeg' id='imageFile' type='file' name='image' />
+                        <input className='hidden-select outline-none p-1 border-2 border-purple-800 w-52 bg-purple-900 rounded-lg cursor-pointer hover:bg-violet-900 transition-all' accept='image/jpg, image/png, image/jpeg' id='imageFile' type='file' name='image' />
                     </div>
                 </form>
                 <div className=' flex justify-center items-center space-x-4 mt-5'>

@@ -20,7 +20,7 @@ const Info = () => {
                     {selector.currentSong.singer}
                 </div>
                 <div className='flex items-center space-x-5'>
-                    <div onClick={handlePlay} className={`px-5 py-1 ${selector.isPlaying ? 'animate-pulse' : ''} h-10 w-28 bg-purple-800 rounded-md flex items-center justify-center text-xl hover:bg-purple-500 cursor-pointer transition-all`}>
+                    <div onClick={handlePlay} className={`px-5 py-1 ${selector.isPlaying ? 'animate-pulse bg-purple-900' : 'bg-rose-800'} h-10 w-28  rounded-md flex items-center justify-center text-xl hover:scale-105  cursor-pointer transition-all`}>
                         {selector.isPlaying ? 'Playing...' : 'Play'}
                     </div>
                     <div className='flex items-center  justify-center text-xl text-rose-600 border-purple-100 border-2 rounded-full p-2 hover:text-rose-500 cursor-pointer transition-all hover:border-purple-300'>

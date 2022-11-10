@@ -23,15 +23,13 @@ const rootReducer = (state = initState, action) => {
             return {
                 ...state,
                 currentSong: action.payload,
-                isPlaying: false
+                isPlaying: true
             }
-
         case 'SET_PLAYLIST':
             return {
                 ...state,
                 playList: action.payload
             }
-
         case 'TOGGLE_PLAY':
             return {
                 ...state,
@@ -42,7 +40,6 @@ const rootReducer = (state = initState, action) => {
                 ...state,
                 uploadShow: action.payload
             }
-
         default:
             return state
     }
